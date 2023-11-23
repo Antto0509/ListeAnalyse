@@ -2,7 +2,7 @@
 
 ## Objectif
 
-Recréer à les fonctions suivantes sans utiliser les méthodes existantes en C# :  
+Recréer les fonctions suivantes sans utiliser les méthodes existantes en C# :  
 
 TailleListe(Liste) : Entier (retourne le nb d’élément)
 
