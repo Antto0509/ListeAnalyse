@@ -34,6 +34,7 @@ Remove(Liste, Rang) : (Liste, Element)
 
 En sachant :
 Une Liste est composée d’Élément
+
   Element E Liste
   
 Element : t_Element
