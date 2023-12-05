@@ -42,6 +42,44 @@ namespace ListeAnalyse
                 Console.WriteLine($"Element à la position {i} : {maListe.Value(i)}");
             }
 
+
+
+            // Test de la classe ListeChainee
+
+            // Création d'une liste chaînée avec une capacité de 5 éléments
+            ListeChainee maListeChainee = new ListeChainee(5);
+
+            // Ajout d'éléments
+            maListeChainee.Add(1, "Element1");
+            maListeChainee.Add(2, "Element2");
+            maListeChainee.Add(3, "Element3");
+
+            // Affichage de la taille de la liste chaînée
+            Console.WriteLine($"Taille de la liste chaînée : {maListeChainee.TailleListe()}");
+
+            // Affichage du contenu de la liste chaînée
+            for (int i = 1; i <= maListeChainee.TailleListe(); i++)
+            {
+                Console.WriteLine($"Element à la position {i} : {maListeChainee.Value(i)}");
+            }
+
+            // Recherche d'un élément dans la liste chaînée
+            string recherche2 = "Element2";
+            int rang2 = maListeChainee.Find(recherche2);
+            Console.WriteLine($"Position de {recherche2} dans la liste chaînée : {rang2}");
+
+            // Suppression d'un élément
+            int rangASupprimer2 = 2;
+            string elementSupprime2 = maListeChainee.Remove(rangASupprimer2);
+            Console.WriteLine($"Element supprimé à la position {rangASupprimer2} : {elementSupprime2}");
+
+            // Affichage du contenu après suppression
+            Console.WriteLine("Contenu après suppression :");
+            for (int i = 1; i <= maListeChainee.TailleListe(); i++)
+            {
+                Console.WriteLine($"Element à la position {i} : {maListeChainee.Value(i)}");
+            }
+
             Console.ReadLine(); // Attendre que l'utilisateur appuie sur une touche
         }
     }
