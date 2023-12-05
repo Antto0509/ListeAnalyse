@@ -1,0 +1,14 @@
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\bin\Debug\net6.0\ListeAnalyse.exe
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\bin\Debug\net6.0\ListeAnalyse.deps.json
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\bin\Debug\net6.0\ListeAnalyse.runtimeconfig.json
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\bin\Debug\net6.0\ListeAnalyse.dll
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\bin\Debug\net6.0\ListeAnalyse.pdb
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.AssemblyInfoInputs.cache
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.AssemblyInfo.cs
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.csproj.CoreCompileInputs.cache
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.dll
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\refint\ListeAnalyse.dll
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.pdb
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ListeAnalyse.genruntimeconfig.cache
+C:\Users\coutr\OneDrive\Documents\Formations\IUT\2e année\1er semestre\R3.03 - Analyse\TP\Liste\ListeAnalyse\ListeAnalyse\obj\Debug\net6.0\ref\ListeAnalyse.dll

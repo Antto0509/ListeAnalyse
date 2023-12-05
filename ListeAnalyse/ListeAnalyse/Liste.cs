@@ -8,53 +8,94 @@ namespace ListeAnalyse
 {
     internal class Liste
     {
-        public class MaListe
+        private string[] tableau;
+        private int tailleMax;
+
+        public Liste(int tailleMax)
         {
-            private int[] liste;
+            this.tailleMax = tailleMax;
+            this.tableau = new string[tailleMax];
+        }
 
-            public MaListe(int[] listeInitiale)
+        public int TailleListe()
+        {
+            int count = 0;
+            foreach (string element in tableau)
             {
-                this.liste = listeInitiale;
+                if (element != null)
+                    count++;
             }
+            return count;
+        }
 
-            public int TailleListe(int[] liste)
+        public bool IsEmpty()
+        {
+            return TailleListe() == 0;
+        }
+
+        public bool IsFull()
+        {
+            return TailleListe() == tailleMax;
+        }
+
+        public string Value(int rang)
+        {
+            if (rang >= 0 && rang < tailleMax)
+                return tableau[rang];
+            else
+                throw new IndexOutOfRangeException("Index hors limites");
+        }
+
+        public int Find(string element)
+        {
+            for (int i = 0; i < tailleMax; i++)
             {
-                int taille = 0;
-                foreach (int element in liste)
-                {
-                    taille++;
-                };
-                return taille;
+                if (tableau[i] == element)
+                    return i + 1; // Rang commence à 1
             }
+            return 0; // Si l'élément n'est pas trouvé
+        }
 
-            public bool IsEmpty(int[] liste)
+        public void Add(int rang, string element)
+        {
+            if (rang >= 0 && rang <= tailleMax)
             {
-                int taille = 0;
-                foreach (int element in liste)
+                if (!IsFull())
                 {
-                    taille++;
-                    break;
+                    // Décalage des éléments à droite pour faire de la place
+                    for (int i = TailleListe(); i > rang; i--)
+                    {
+                        tableau[i] = tableau[i - 1];
+                    }
+                    tableau[rang] = element;
                 }
-                if (taille > 0)
+                else
                 {
-                    return false;
+                    throw new InvalidOperationException("La liste est pleine, impossible d'ajouter un nouvel élément.");
                 }
-                return true;
             }
-
-            public bool IsFull(int Tmax)
+            else
             {
-                int taille = 0;
-                foreach (int element in liste)
+                throw new IndexOutOfRangeException("Index hors limites");
+            }
+        }
+
+        public string Remove(int rang)
+        {
+            if (rang >= 0 && rang < tailleMax)
+            {
+                string element = tableau[rang];
+                // Décalage des éléments à gauche pour remplir le trou
+                for (int i = rang; i < TailleListe() - 1; i++)
                 {
-                    taille++;
-                    break;
+                    tableau[i] = tableau[i + 1];
                 }
-                if (taille < 0)
-                {
-                    return false;
-                }
-                return true; ;
+                tableau[TailleListe() - 1] = null; // Dernier élément devient null
+                return element;
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Index hors limites");
             }
         }
     }
