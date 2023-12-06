@@ -17,14 +17,6 @@ namespace ListeAnalyse
             this.tailleMax = tailleMax;
             this.TabElmt = new string[tailleMax];
             this.TabInd = new int[tailleMax];
-
-            // Initialisation du tableau TabInd pour indiquer que chaque élément pointe vers le suivant
-            for (int i = 0; i < tailleMax - 1; i++)
-            {
-                TabInd[i] = i + 1;
-            }
-            // Le dernier élément pointe vers -1 pour indiquer la fin de la liste
-            TabInd[tailleMax - 1] = -1;
         }
 
         public int TailleListe()
@@ -53,20 +45,30 @@ namespace ListeAnalyse
 
         public string Value(int rang)
         {
-            int indice = 0;
-            int count = 0;
-
-            // Parcourir la liste jusqu'à la position spécifiée
-            while (count < rang && indice != -1)
+            try
             {
-                indice = TabInd[indice];
-                count++;
-            }
+                int indice = 0;
+                int count = 0;
 
-            if (indice != -1)
-                return TabElmt[indice];
-            else
-                throw new IndexOutOfRangeException("Index hors limites");
+                // Parcourir la liste jusqu'à la position spécifiée
+                while (count < rang && indice != -1)
+                {
+                    indice = TabInd[indice];
+                    count++;
+                }
+
+                if (indice != -1)
+                    return TabElmt[indice];
+                else
+                    throw new IndexOutOfRangeException("Index hors limites");
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                // Gérer l'exception localement
+                Console.WriteLine($"Erreur lors de l'accès à la position {rang} : {ex.Message}");
+                // Vous pouvez effectuer d'autres opérations ici en cas d'erreur d'index
+                return null; // Ou une valeur par défaut appropriée
+            }
         }
 
         public int Find(string element)
@@ -89,25 +91,18 @@ namespace ListeAnalyse
 
         public void Add(int rang, string element)
         {
-            if (rang >= 1 && rang <= tailleMax)
+            if (rang >= 0 && rang <= tailleMax)
             {
                 if (!IsFull())
                 {
-                    int nouvelIndice = 0;
-                    int precedentIndice = -1;
-                    int count = 0;
-
-                    // Trouver l'endroit où insérer le nouvel élément
-                    while (count < rang && nouvelIndice != -1)
+                    // Décalage des éléments à droite pour faire de la place
+                    for (int i = TailleListe(); i > rang; i--)
                     {
-                        precedentIndice = nouvelIndice;
-                        nouvelIndice = TabInd[nouvelIndice];
-                        count++;
+                        TabElmt[i] = TabElmt[i - 1];
+                        TabInd[i] = TabInd[i - 1];
                     }
-
-                    // Insérer le nouvel élément
-                    TabElmt[nouvelIndice] = element;
-                    TabInd[nouvelIndice] = precedentIndice;
+                    TabElmt[rang] = element;
+                    TabInd[rang] = rang;
                 }
                 else
                 {
@@ -122,44 +117,66 @@ namespace ListeAnalyse
 
         public string Remove(int rang)
         {
-            if (rang >= 1 && rang <= tailleMax)
+            try
             {
-                int indiceASupprimer = 0;
-                int precedentIndice = -1;
-                int count = 0;
-
-                // Trouver l'endroit où supprimer l'élément
-                while (count < rang && indiceASupprimer != -1)
+                if (rang >= 1 && rang <= tailleMax)
                 {
-                    precedentIndice = indiceASupprimer;
-                    indiceASupprimer = TabInd[indiceASupprimer];
-                    count++;
-                }
+                    int indiceASupprimer = 0;
+                    int precedentIndice = -1;
+                    int count = 0;
 
-                if (indiceASupprimer != -1)
-                {
-                    string elementSupprime = TabElmt[indiceASupprimer];
+                    // Trouver l'endroit où supprimer l'élément
+                    while (count < rang && indiceASupprimer != -1)
+                    {
+                        precedentIndice = indiceASupprimer;
+                        indiceASupprimer = TabInd[indiceASupprimer];
+                        count++;
+                    }
 
-                    // Réorganiser les pointeurs pour supprimer l'élément
-                    if (precedentIndice != -1)
-                        TabInd[precedentIndice] = TabInd[indiceASupprimer];
+                    if (indiceASupprimer != -1)
+                    {
+                        string elementSupprime = TabElmt[indiceASupprimer];
+
+                        // Réorganiser les pointeurs pour supprimer l'élément
+                        if (precedentIndice != -1)
+                            TabInd[precedentIndice] = TabInd[indiceASupprimer];
+                        else
+                            TabInd[0] = TabInd[indiceASupprimer];
+
+                        TabInd[indiceASupprimer] = -1; // Définir le pointeur de l'élément supprimé à -1
+
+                        return elementSupprime;
+                    }
                     else
-                        TabInd[0] = TabInd[indiceASupprimer];
-
-                    TabInd[indiceASupprimer] = -1; // Définir le pointeur de l'élément supprimé à -1
-
-                    return elementSupprime;
+                    {
+                        throw new IndexOutOfRangeException("Index hors limites");
+                    }
                 }
                 else
                 {
                     throw new IndexOutOfRangeException("Index hors limites");
                 }
             }
-            else
+            catch (IndexOutOfRangeException ex)
             {
-                throw new IndexOutOfRangeException("Index hors limites");
+                // Gérer l'exception IndexOutOfRangeException localement
+                Console.WriteLine($"Erreur lors de la suppression : {ex.Message}");
+                // Vous pouvez effectuer d'autres opérations ici en cas d'erreur d'index
+                return null; // Ou une autre valeur par défaut selon vos besoins
             }
         }
+
+        /*private int TrouverIndiceLibre()
+        {
+            for (int i = 0; i < tailleMax; i++)
+            {
+                if (TabElmt[i] == null)
+                {
+                    return i;
+                }
+            }
+            return -1; // Aucun indice libre trouvé
+        }*/
     }
 }
 

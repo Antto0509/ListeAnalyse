@@ -8,6 +8,8 @@ namespace ListeAnalyse
         {
             // Test de la classe Liste
 
+            Console.WriteLine("Test de la classe Liste\n");
+
             // Création d'une liste avec une capacité de 5 éléments
             Liste maListe = new Liste(5);
 
@@ -46,13 +48,15 @@ namespace ListeAnalyse
 
             // Test de la classe ListeChainee
 
+            Console.WriteLine("\nTest de la classe ListeChainee\n");
+
             // Création d'une liste chaînée avec une capacité de 5 éléments
             ListeChainee maListeChainee = new ListeChainee(5);
 
             // Ajout d'éléments
-            maListeChainee.Add(1, "Element1");
-            maListeChainee.Add(2, "Element2");
-            maListeChainee.Add(3, "Element3");
+            maListeChainee.Add(0, "Element1");
+            maListeChainee.Add(1, "Element2");
+            maListeChainee.Add(2, "Element3");
 
             // Affichage de la taille de la liste chaînée
             Console.WriteLine($"Taille de la liste chaînée : {maListeChainee.TailleListe()}");
